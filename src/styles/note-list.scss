@@ -1,0 +1,44 @@
+.notes-history {
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+
+  li {
+    overflow: hidden;
+    width: 30rem;
+    height: 30rem;
+
+    margin: 2rem 2rem;
+    padding: 1rem;
+
+    border: 1px solid #a8a8b3;
+
+    cursor: pointer;
+
+    span {
+      margin: 1rem;
+      background: #e559f9;
+      border-radius: 9999px;
+      padding: .4rem 1.6rem;
+      color: #fff;
+      font-weight: 500;
+      font-size: 1.4rem;
+    }
+  }
+
+  h3 {
+    // font: 700 10rem 'Poppins' red;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: 'Poppins';
+    text-align: center;
+  }
+
+  p {
+    font: 400 2.6rem 'Poppins', sans-serif;
+  }
+}

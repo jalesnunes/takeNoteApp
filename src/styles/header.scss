@@ -1,0 +1,38 @@
+.header {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+
+  border-bottom: 0.1rem solid #a8a8b3;
+
+  .logo {
+    margin-left: 1rem;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin-right: 3rem;
+  }
+  
+
+  li {
+    margin: 1rem;
+  }
+
+  .li-link {
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: #835afd;
+
+    &:hover {
+      padding-bottom: 2.5rem;
+      border-bottom: 0.5rem solid #835afd;
+    }
+  }
+  
+  
+
+}
