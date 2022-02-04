@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import '../styles/new-note.scss'
 
-export function NewNote() {
+export function NewNote(props) {
   const [title, setTitle] = useState('')
   const [noteText, setNoteText] =useState('')
 
@@ -10,17 +10,23 @@ export function NewNote() {
   const handleTitleChange = event => {
     setTitle(event.target.value)
 
-    console.log(title)
+    // console.log(title)
   }
 
   const handleNoteTextChange = event => {
     setNoteText(event.target.value)
-    console.log(noteText)
+    // console.log(noteText)
+  }
+
+  const createNewNote = event => {
+    event.preventDefault()
+
+    props.createNewNote(title, noteText)
   }
 
   return (
     <div className="content">
-      <form>
+      <form onSubmit={createNewNote}>
         <input type="text" placeholder="Title" onChange={handleTitleChange} />
         <textarea placeholder="Take a note..." onChange={handleNoteTextChange} />
         <button type='submit'>Create Note</button>
