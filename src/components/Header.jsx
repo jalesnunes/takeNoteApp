@@ -14,7 +14,7 @@ export function Header() {
         <nav>
           <ul>
             <li>
-              <a className='li-link' href="/">Link</a>
+              <a className='li-link' href="/newNote/new">Link</a>
             </li>
             <li>
               <a className='li-link' href="/">Link</a>

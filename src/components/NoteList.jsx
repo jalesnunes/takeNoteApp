@@ -1,9 +1,16 @@
 import { NoteCard } from '../components/NoteCard'
 import '../styles/note-list.scss'
 
-export function NoteList(props) {
+import {useNavigate } from 'react-router-dom'
 
-  console.log(props)
+export function NoteList(props) {
+  const navigate = useNavigate()
+
+  function openNote() {
+    navigate("/openNote/")
+  }
+
+  // console.log(props)
   return (
     <div className="notes-history">
       <ul>
@@ -12,8 +19,8 @@ export function NoteList(props) {
           // console.log(note)
           // console.log(index)
           return (
-            <li key={index}>
-              <span>{note}</span>
+            <li onClick={openNote} key={index}>
+              <span>{note[1]}</span>
               <NoteCard title={note} text={note}/>
             </li>
           )

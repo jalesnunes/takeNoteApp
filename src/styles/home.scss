@@ -1,0 +1,125 @@
+#page-login {
+  display: flex;
+  align-items: stretch;
+  height: 100vh;
+}
+
+aside {
+  flex: 7;
+
+  background-color: #c2688b;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 12rem 8rem;
+
+  text-align: center;
+
+  img {
+    max-width: 50rem;
+  }
+
+  strong {
+    font: 700 3.6rem 'Poppins', sans-serif;
+    line-height: 4.2rem;
+    margin-top: 4rem;
+  }
+
+  p {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    margin-top: 1.6rem;
+    color: #f8f8f8;
+  }
+}
+
+main {
+  flex: 8;
+
+  padding: 0 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  > img {
+    align-self: center;
+  }
+
+  .login-google{
+    margin-top: 64px;
+    height: 58px;
+    border-radius: 8px;
+    font-weight: 500;
+    background-color: #ea4335;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    border: 0;
+
+    transition: filter 0.2s;
+
+    img {
+      margin-right: 16px;
+    }
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  #page-login {
+    flex-direction: column;
+  }
+
+  aside {
+    height: 5vh;
+    flex: none;
+
+    img {
+      display: none;
+    }
+
+    strong {
+      font: 3rem 'Poppins', sans-serif;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.6rem;
+      text-align: center;
+    }
+  }
+
+  main {
+    flex: none;
+
+    .main-content {
+      margin-top: 6rem;
+      // max-width: 250px;
+      // margin: 0 auto;
+    }
+
+    // .logo {
+    //   width: 10px;
+    // }
+  }
+}

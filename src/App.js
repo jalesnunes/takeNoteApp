@@ -1,27 +1,27 @@
-import { useState } from 'react'
-import { Header } from './components/Header'
-import { NoteList } from './components/NoteList'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
 import { NewNote } from './pages/NewNote'
+import { Home } from './pages/Home'
+import { ViewNote } from './pages/ViewNote'
 
 export function App() {
-  const [notes, setNotes] = useState([])
-
-  function createNewNote(title, noteText) {
-    const newNote = [ title, noteText ]
-    const updated = [...notes, newNote]
-
-    setNotes(updated)
-    // notes.push(newNote)
-
-    // console.log(notes.length, notes)
-    // setNotes(notes)
-  }
+  
 
   return (
     <>
-      <Header />
-      <NewNote createNewNote={createNewNote} />
-      <NoteList notes={notes} />
+
+<BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/newNote/new" element={<NewNote />} />
+          <Route path="/openNote/" element={<ViewNote />} />
+        </Routes>
+    </BrowserRouter>
+
+    {/* <Home /> */}
+      {/* modificacoes */}
+      
+      
     </>
   )
 }
