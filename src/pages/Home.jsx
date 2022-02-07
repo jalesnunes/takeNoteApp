@@ -3,6 +3,7 @@ import notes from '../assets/images/notes.svg'
 import googleIcon from '../assets/images/google-icon.svg'
 
 import {useNavigate } from 'react-router-dom'
+import { auth, firebase } from '../services/firebase'
 
 
 import '../styles/home.scss'
@@ -10,7 +11,11 @@ import '../styles/home.scss'
 export function Home() {
   const navigate = useNavigate()
 
-  function newNote() {
+  function handleLoginApp() {
+    const provider = new firebase.auth.GoogleAuthProvider()
+
+    auth.signInWithPopup(provider)
+
     navigate("/newNote/new")
   }
 
@@ -27,7 +32,7 @@ export function Home() {
       <main>
         <div className='main-content'>
           <img src={notes} alt="page logo" />
-          <button onClick={newNote}  className='login-google'>
+          <button onClick={handleLoginApp}  className='login-google'>
             <img src={googleIcon} alt="google icon" />
             Create your account with Google
           </button>

@@ -5,23 +5,18 @@ import { Home } from './pages/Home'
 import { ViewNote } from './pages/ViewNote'
 
 export function App() {
-  
-
   return (
     <>
-
-<BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/newNote/new" element={<NewNote />} />
           <Route path="/openNote/" element={<ViewNote />} />
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
 
-    {/* <Home /> */}
+      {/* <Home /> */}
       {/* modificacoes */}
-      
-      
     </>
   )
 }
