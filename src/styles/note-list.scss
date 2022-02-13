@@ -8,7 +8,7 @@
   }
 
   li {
-    overflow: hidden;
+    overflow:  scroll;
     width: 30rem;
     height: 30rem;
 
@@ -17,13 +17,19 @@
 
     border: 1px solid #a8a8b3;
 
-    cursor: pointer;
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+
+      gap: .8rem;
+    }
 
     img {
-      margin-left: 24rem;
       background: #e559f9;
       border-radius: 9999px;
       padding: .4rem .6rem;
+
+      cursor: pointer;
     }
   }
 

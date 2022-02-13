@@ -1,9 +1,11 @@
 import illustration from '../assets/images/illustration.svg'
 import notes from '../assets/images/notes.svg'
 import googleIcon from '../assets/images/google-icon.svg'
+import faceIcon from '../assets/images/facebook-icon.svg'
 
 import {useNavigate } from 'react-router-dom'
 import { auth, firebase } from '../services/firebase'
+import { FacebookAuthProvider } from "firebase/auth";
 
 
 import '../styles/home.scss'
@@ -11,7 +13,15 @@ import '../styles/home.scss'
 export function Home() {
   const navigate = useNavigate()
 
-  function handleLoginApp() {
+  function handleLoginAppFace() {
+    const provider = new FacebookAuthProvider()
+
+    auth.signInWithPopup(provider)
+
+    navigate("/newNote/new")
+  }
+
+  function handleLoginAppGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider()
 
     auth.signInWithPopup(provider)
@@ -31,10 +41,14 @@ export function Home() {
 
       <main>
         <div className='main-content'>
-          <img src={notes} alt="page logo" />
-          <button onClick={handleLoginApp}  className='login-google'>
+          <button onClick={handleLoginAppGoogle}  className='login-google'>
             <img src={googleIcon} alt="google icon" />
-            Create your account with Google
+            Login with Google
+          </button>
+
+          <button onClick={handleLoginAppFace} className='login-facebook'>
+            <img src={faceIcon} alt="facebbok icon" />
+            Login with Facebook
           </button>
         </div>
       </main>

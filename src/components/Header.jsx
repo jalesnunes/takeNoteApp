@@ -1,15 +1,20 @@
 import { auth } from '../services/firebase'
 
 import logo from '../assets/images/logo.png'
+import { useNavigate } from 'react-router-dom'
 
 import '../styles/header.scss'
 
 export function Header() {
+  
+  const navigate = useNavigate()
+  
   const handleSingOut = event => {
     event.preventDefault()
     auth.signOut()
       .then(() => {
         console.log('sign out') // Sign-out successful.
+        navigate('/')
       })
       .catch(error => {
         console.log(`error: ${error}`) // An error happened.
@@ -28,7 +33,7 @@ export function Header() {
           <ul>
             <li>
               <a className="li-link" href="/newNote/new">
-                Link
+                Notes
               </a>
             </li>
             <li>
@@ -38,7 +43,7 @@ export function Header() {
             </li>
             <li>
               <a onClick={handleSingOut} className="li-link" href="/">
-                Link
+                Sign out
               </a>
             </li>
           </ul>

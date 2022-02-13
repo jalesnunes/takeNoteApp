@@ -1,30 +1,44 @@
-
 import { NoteCard } from '../components/NoteCard'
 import '../styles/note-list.scss'
-import deleteImg from '../assets/images/delete.svg';
+import deleteBtn from '../assets/images/delete.svg'
+import editBtn from '../assets/images/edit.svg'
 
+import { useNavigate } from 'react-router-dom'
 
-import {useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { ArrContext } from '../App'
 
-export function NoteList(props) {
+export function NoteList() {
   const navigate = useNavigate()
+  
+  const [notes, setNotes] = useContext(ArrContext)
 
   function openNote() {
-    navigate("/openNote/")
+    navigate('/openNote/')
+  }
+
+  function deleteNote(index) {
+    console.log(index)
+    let arrNotes = notes
+    arrNotes.splice(index,1)
+    arrNotes = [...notes]
+    
+    setNotes(arrNotes);
   }
 
   // console.log(props)
   return (
     <div className="notes-history">
       <ul>
-        {props.notes.map((note, index) => {
-          // console.log(props)
-          // console.log(note)
-          // console.log(index)
+        {notes.map((note, index) => {
           return (
-            <li onClick={openNote} key={index}>
-              <img src={deleteImg} alt="delete button" />
-              <NoteCard title={note} text={note}/>
+            <li key={index}>
+              <div className="buttons">
+                <img onClick={openNote} src={editBtn} alt="edit button" />
+                <img onClick={() =>deleteNote(index)} src={deleteBtn} alt="delete button" />
+              </div>
+
+              <NoteCard title={note} text={note} />
             </li>
           )
         })}

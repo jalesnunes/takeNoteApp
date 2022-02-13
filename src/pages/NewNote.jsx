@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { ArrContext } from '../App'
 
 
 import { Header } from '../components/Header'
@@ -10,7 +11,7 @@ export function NewNote() {
   // modificacoes
   const [title, setTitle] = useState('')
   const [noteText, setNoteText] =useState('')
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useContext(ArrContext)
 
   function handleCreateNewNote(title, noteText) {
     const newNote = [ title, noteText ]
@@ -20,13 +21,10 @@ export function NewNote() {
   }
   const handleTitleChange = event => {
     setTitle(event.target.value)
-
-    // console.log(title)
   }
 
   const handleNoteTextChange = event => {
     setNoteText(event.target.value)
-    // console.log(noteText)
   }
 
   const createNewNote = event => {
@@ -45,7 +43,7 @@ export function NewNote() {
         <button type='submit'>Create Note</button>
       </form>
 
-      <NoteList notes={notes} />
+      <NoteList />
     </div>
   )
 }
